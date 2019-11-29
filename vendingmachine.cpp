@@ -138,7 +138,7 @@ class VendingMachine{
             }
             cout << endl;
             cout<<"--------------------------------------------VendingMachine--------------------------------------------"<<endl;
-            cout << "-------------------Lights Color  red:Sold Out  green:Selectable  wihte:Not Selectable-----------------" << endl;
+            cout << "-------------------Lights Color  red:Sold Out  green:Selectable  white:Not Selectable-----------------" << endl;
             cout << "--------------------INPUT  1:Drop Coin  2:Refund  3:Choose Beverage  4:Seller's Menu------------------" << endl;
             int option;
             cin >> option;
