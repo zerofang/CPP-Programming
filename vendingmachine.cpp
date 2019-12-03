@@ -116,7 +116,7 @@ class VendingMachine{
             for (int i = 0; i < KIND_NUM; i++){
                 cout << "|";
                 cout.width(15);
-                cout << "$"+to_string(beverages[i]->getPrice());
+                cout << beverages[i]->getName();
                 cout.width(0);
                 cout << "|";
             }
@@ -124,7 +124,7 @@ class VendingMachine{
             for (int i = 0; i < KIND_NUM; i++){
                 cout << "|";
                 cout.width(15);
-                cout << beverages[i]->getName();
+                cout << "$"+to_string(beverages[i]->getPrice());
                 cout.width(0);
                 cout << "|";
             }
@@ -247,9 +247,8 @@ class VendingMachine{
         void changeBeverage() {
             changeBeverageNames();
             for (int i = 0; i < KIND_NUM; i++) {
-                delete &beverages[i];
-                Beverage b(i, beverageNames[i], initialPrices[i], initialStock[i]);
-                beverages[i] = &b;
+                delete beverages[i];
+                beverages[i] = new Beverage(i, beverageNames[i], initialPrices[i], initialStock[i]);
             }
             enterOwnerMode();
         }
@@ -299,6 +298,12 @@ class VendingMachine{
                     cout << "Illegal Input!" << endl;
             }
             enterOwnerMode();
+        }
+
+        ~VendingMachine(){
+            for (int i = 0; i < KIND_NUM; i++) {
+                delete beverages[i];
+            }
         }
 };
 
